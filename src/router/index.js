@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Add from '../views/Add.vue'
+import Edit from '../views/Edit.vue'
+import Delete from '../views/Delete.vue'
 
 Vue.use(VueRouter)
 
@@ -11,12 +14,21 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/add',
+    name: 'Add',
+    component: Add
+  },
+  {
+    path: '/edit',
+    name: 'Edit',
+    component: Edit,
+    props: true // important to allow receiving props in Edit component
+  },
+  {
+    path: '/delete',
+    name: 'Delete',
+    component: Delete,
+    props: true // important to allow receiving props in Delete component
   }
 ]
 
