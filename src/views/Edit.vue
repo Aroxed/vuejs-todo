@@ -22,14 +22,13 @@ export default {
       }
   },
   
-  mounted() {
+  async mounted() {
 
     if (this.itemId == null) { // and undefined  
         this.$router.push({name: 'Home'});
         return;
     }
-    const title = this.$store.state.todoItems.getTitle(this.itemId);  
-    this.itemTitle = title; 
+    this.itemTitle = await this.$store.state.todoItems.getTitle(this.itemId);  
   },
 
   methods: {

@@ -6,7 +6,11 @@ export default class TodoList {
     }
 
     _getItemIndex(itemId) {
-        return this.items.findIndex( (item) => item.id === itemId); 
+        return this.items.findIndex( (item) => item.id == itemId); 
+    }
+
+    getItems() {
+        return this.items;
     }
 
     addItem(title) {
@@ -28,9 +32,8 @@ export default class TodoList {
         return this.items[itemIndex].title;
     }
 
-    toggleDone(itemIdList) {
-        this.items.map( (item) => {
-            if (itemIdList.indexOf(item.id) > -1) item.toggleDone();
-         }); 
+    toggleDone(itemId) {
+        const itemIndex = this._getItemIndex(itemId); 
+        this.items[itemIndex].toggleDone();
     }
 }
