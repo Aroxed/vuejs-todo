@@ -5,10 +5,6 @@ export default class Item {
         this.done = false;
     }
 
-    toggleDone() { 
-        this.done = !this.done; 
-    }
-
     changeTitle(title) {
         this.title = title;
     }

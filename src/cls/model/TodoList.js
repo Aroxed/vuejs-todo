@@ -6,7 +6,7 @@ export default class TodoList {
     }
 
     _getItemIndex(itemId) {
-        return this.items.findIndex( (item) => item.id === itemId); 
+        return this.items.findIndex( (item) => parseInt(item.id) === parseInt(itemId)); 
     }
 
     addItem(title) {
@@ -14,7 +14,7 @@ export default class TodoList {
         this.items.push(item);
     }
 
-    deleteItem(itemId) {
+    deleteItem(itemId) { 
         this.items.splice(this._getItemIndex(itemId), 1);
     }
 
@@ -28,9 +28,4 @@ export default class TodoList {
         return this.items[itemIndex].title;
     }
 
-    toggleDone(itemIdList) {
-        this.items.map( (item) => {
-            if (itemIdList.indexOf(item.id) > -1) item.toggleDone();
-         }); 
-    }
 }

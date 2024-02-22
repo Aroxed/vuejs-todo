@@ -8,7 +8,7 @@
       </tr>
       <tr v-for="todoItem in todoItems" :key="todoItem.id">
         <td>{{ todoItem.title}}</td>
-        <td><input type="checkbox" @change="toggleDone(todoItem.id)" :value="todoItem.done"></td>
+        <td><input type="checkbox" v-model="todoItem.done"></td>
         <td>
           <button @click="deleteItem(todoItem.id)">Delete</button> &nbsp;
           <button @click="editItem(todoItem.id)">Edit</button>
@@ -30,9 +30,6 @@ export default {
     },
     editItem(id) {
       this.$emit('editItem', id);
-    },
-    toggleDone(id) {
-      this.$emit('toggleDone', id);
     }
   }
 }
